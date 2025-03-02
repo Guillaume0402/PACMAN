@@ -45,10 +45,10 @@ const layout = [
     1, 1, 1, 1, 1, 1, 1, 1, 1,
 ];
 
-// 0 - pac-dots
-// 1 - wall
-// 2 - ghost-lair
-// 3 - power-pellet
+// 0 - points
+// 1 - mur
+// 2 - fantome-area
+// 3 - point-puissance
 // 4 - empty
 
 creerPlateau();
