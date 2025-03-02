@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+}
+
+#game {
+    width: 560px;
+    height: 560px;    
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+    border: 5px solid rgb(255, 0, 0);
+
+}
+
+#game div {
+    width: 20px;
+    height: 20px;
+    
+}
+
+#game div.mur {
+    background-color: rgb(51, 60, 187);
+}
+#game div.point {
+    background-color: rgb(152, 154, 180);
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: rgb(0, 0, 0) solid 7px;
+    
+}
+#game div.fantome-area {
+    background-color: rgb(102, 102, 102);
+}
+#game div.point-puissance {
+    background-color: rgb(5, 255, 68);
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: rgb(0, 0, 0) solid 3px;
+}
+
