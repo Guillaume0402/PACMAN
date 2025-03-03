@@ -1,11 +1,12 @@
 const gameDiv = document.getElementById("game");
 const sizeCaseWidth = 28;
-
+const scoreHtml = document.getElementById("score");
+let score = 0;
 /*
 OK Créer le palteau (Points à maner, Points de puissance, Murs, Case vide, Pacman, Fantômes)
 OK Créer notre pacman
- *Gérer ses déplacements (sans contraintes)
- *Contrainte de déplacement (pas dans les murs)
+OK Gérer ses déplacements (sans contraintes)
+OK Contrainte de déplacement (pas dans les murs)
  *Pièces à manger
  *Gérer les fantômes
  *...
@@ -54,12 +55,13 @@ const layout = [
 
 creerPlateau();
 
-document.addEventListener("keyup", (event) => {
+document.addEventListener("keydown", (event) => {
     DeplacerPacman(event.key);
 });
 
 function creerPlateau() {
     let cptCase = 0;
+    scoreHtml.innerHTML = score;
     layout.forEach((caseLayout) => {
         let casePlateau = document.createElement("div");
         casePlateau.dataset.numerocase = cptCase;
@@ -118,6 +120,8 @@ function DeplacerPacman(direction) {
         default:
             break;
     };
+
+    
     if(caseDestination!= null) {
         if(checkDirection(caseDestination)) {
             pacmanDiv.classList.remove("pacman");
@@ -132,6 +136,20 @@ function checkDirection(caseDestination) {
     if (caseDestination.classList.contains("mur")) {
         return false;
     } else {
+        if(caseDestination.classList.contains("point")) {
+            incrementScore();
+            caseDestination.classList.remove("point");
+        }
         return true;
     }
+}
+
+function incrementScore() {
+    score++;
+    scoreHtml.innerHTML = score;
+    let allPoints = layout.filter(l=> l ==0)
+    if(score == allPoints.length) {
+        alert("Vous avez gagné");
+    }
+    
 }
